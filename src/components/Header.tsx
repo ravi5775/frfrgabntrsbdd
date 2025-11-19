@@ -12,8 +12,18 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    // Map 'careers' to 'services' section (Career-Focused Training Programs)
+    const targetId = id === 'careers' ? 'services' : id;
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   };
 
   return (
@@ -27,7 +37,7 @@ const Header = () => {
           SKILLVANCE TECHNOLOGIES
         </div>
         <ul className="hidden md:flex gap-10 list-none">
-          {["home", "careers", "services", "internships", "verify", "contact"].map((item) => (
+          {["home", "careers", "internships", "verify", "contact"].map((item) => (
             <li key={item}>
               <button
                 onClick={() => scrollToSection(item)}
@@ -35,7 +45,6 @@ const Header = () => {
               >
                 {item === "home" ? "Home" : 
                  item === "careers" ? "Careers" :
-                 item === "services" ? "Services" :
                  item === "internships" ? "Internships" :
                  item === "verify" ? "Verify Certificate" :
                  "Contact Us"}
