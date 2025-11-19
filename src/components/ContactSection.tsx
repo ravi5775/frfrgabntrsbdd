@@ -1,0 +1,177 @@
+import { useState } from "react";
+import { toast } from "sonner";
+
+const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Thank you for your enquiry! Our team will contact you within 24 hours.");
+    setFormData({ name: "", email: "", phone: "", program: "", message: "" });
+  };
+
+  return (
+    <section id="contact" className="py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <div className="text-primary text-sm font-semibold uppercase tracking-[2px] mb-4">
+            Get In Touch
+          </div>
+          <h2 className="text-5xl font-bold text-white mb-4">
+            Contact Us & Enquire
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Have questions? We're here to help you advance your skills
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+          {/* Contact Info */}
+          <div className="bg-card p-12 rounded-2xl border border-white/5">
+            <h3 className="text-primary text-2xl mb-8 font-semibold">Contact Information</h3>
+            
+            <div className="space-y-8">
+              <div className="flex gap-6">
+                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-glow">
+                  📍
+                </div>
+                <div>
+                  <h4 className="text-primary font-semibold mb-2">Our Location</h4>
+                  <p className="text-foreground/70">Chittoor, Andhra Pradesh, India</p>
+                </div>
+              </div>
+
+              <div className="flex gap-6">
+                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-glow">
+                  📧
+                </div>
+                <div>
+                  <h4 className="text-primary font-semibold mb-2">Email Us</h4>
+                  <p className="text-foreground/70">info@skillvance.com</p>
+                  <p className="text-foreground/70">support@skillvance.com</p>
+                </div>
+              </div>
+
+              <div className="flex gap-6">
+                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-glow">
+                  📞
+                </div>
+                <div>
+                  <h4 className="text-primary font-semibold mb-2">Call Us</h4>
+                  <p className="text-foreground/70">+91 12345 67890</p>
+                  <p className="text-foreground/70">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+
+              <div className="flex gap-6">
+                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-glow">
+                  🌐
+                </div>
+                <div>
+                  <h4 className="text-primary font-semibold mb-2">Follow Us</h4>
+                  <div className="flex gap-3 mt-4">
+                    {['f', 'in', 'tw', 'ig'].map((icon) => (
+                      <a
+                        key={icon}
+                        href="#"
+                        className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-primary hover:border-transparent hover:-translate-y-1"
+                      >
+                        {icon}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-card p-12 rounded-2xl border border-white/5">
+            <h3 className="text-primary text-2xl mb-8 font-semibold">Send Us a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block mb-2 text-foreground/80 font-medium">Full Name</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Enter your name"
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:shadow-glow transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-foreground/80 font-medium">Email Address</label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="Enter your email"
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:shadow-glow transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-foreground/80 font-medium">Phone Number</label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  placeholder="Enter your phone number"
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:shadow-glow transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 text-foreground/80 font-medium">Program Interest</label>
+                <select
+                  value={formData.program}
+                  onChange={(e) => setFormData({ ...formData, program: e.target.value })}
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:shadow-glow transition-all"
+                >
+                  <option value="">Select a domain</option>
+                  <option value="ml">Machine Learning Engineer</option>
+                  <option value="ds">Data Scientist</option>
+                  <option value="da">Data Analyst</option>
+                  <option value="web">Web Developer</option>
+                  <option value="cyber">Cybersecurity Engineer</option>
+                  <option value="blockchain">Blockchain Engineer</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block mb-2 text-foreground/80 font-medium">Your Message</label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Tell us about your goals and questions"
+                  rows={4}
+                  className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:shadow-glow transition-all resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4 bg-gradient-primary text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-glow-hover"
+              >
+                Submit Enquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
