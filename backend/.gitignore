@@ -1,0 +1,18 @@
+# MongoDB data directory
+.mongodb/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
