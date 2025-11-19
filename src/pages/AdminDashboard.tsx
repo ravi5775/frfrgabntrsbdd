@@ -6,12 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import InternshipsManager from '@/components/admin/InternshipsManager';
 import SocialLinksManager from '@/components/admin/SocialLinksManager';
 import CertificatesManager from '@/components/admin/CertificatesManager';
+import MessagesManager from '@/components/admin/MessagesManager';
 import AdminSettingsManager from '@/components/admin/AdminSettingsManager';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { isAuthenticated, currentAdmin, logout } = useAdminAuth();
-  const [activeTab, setActiveTab] = useState('internships');
+  const [activeTab, setActiveTab] = useState('messages');
 
   useEffect(() => {
     // Check localStorage directly to avoid race condition
@@ -55,12 +56,17 @@ const AdminDashboard = () => {
 
       <div className="max-w-7xl mx-auto px-8 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
+            <TabsTrigger value="messages">Messages</TabsTrigger>
             <TabsTrigger value="internships">Internships</TabsTrigger>
-            <TabsTrigger value="social">Social Links</TabsTrigger>
             <TabsTrigger value="certificates">Certificates</TabsTrigger>
-            <TabsTrigger value="settings">Admin Settings</TabsTrigger>
+            <TabsTrigger value="social">Social Links</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
+
+          <TabsContent value="messages">
+            <MessagesManager />
+          </TabsContent>
 
           <TabsContent value="internships">
             <InternshipsManager />
