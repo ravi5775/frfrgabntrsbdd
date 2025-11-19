@@ -12,6 +12,24 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Save message to localStorage
+    const newMessage = {
+      id: `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      program: formData.program,
+      message: formData.message,
+      status: 'new' as const,
+      createdAt: new Date().toISOString(),
+    };
+
+    const stored = localStorage.getItem('contactMessages');
+    const messages = stored ? JSON.parse(stored) : [];
+    messages.push(newMessage);
+    localStorage.setItem('contactMessages', JSON.stringify(messages));
+
     toast.success("Thank you for your enquiry! Our team will contact you within 24 hours.");
     setFormData({ name: "", email: "", phone: "", program: "", message: "" });
   };
