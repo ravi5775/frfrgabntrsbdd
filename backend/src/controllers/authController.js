@@ -68,8 +68,25 @@ export const login = async (req, res) => {
       });
     }
 
+    // Input validation - prevent injection
+    if (email.length > 255 || password.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid input length',
+      });
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid email format',
+      });
+    }
+
     // Check for user (include password for comparison)
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email: email.toLowerCase().trim() }).select('+password');
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -89,6 +106,11 @@ export const login = async (req, res) => {
     // Generate token
     const token = generateToken(user._id);
 
+    // Don't log sensitive data in production
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`User logged in: ${user.email}`);
+    }
+
     res.status(200).json({
       success: true,
       message: 'Login successful',
@@ -98,10 +120,11 @@ export const login = async (req, res) => {
       },
     });
   } catch (error) {
+    // Don't expose internal errors to client
     console.error('Login error:', error);
     res.status(500).json({
       success: false,
-      message: error.message || 'Error logging in',
+      message: 'An error occurred during login',
     });
   }
 };

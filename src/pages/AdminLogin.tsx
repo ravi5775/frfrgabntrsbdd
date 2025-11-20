@@ -1,28 +1,56 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { apiClient } from '@/lib/api';
+import { z } from 'zod';
+
+const loginSchema = z.object({
+  email: z.string().email('Invalid email address').min(1, 'Email is required'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
+});
 
 const AdminLogin = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAdminAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (login(username, password)) {
-      toast.success('Login successful!');
-      // Use setTimeout to ensure state update completes before navigation
-      setTimeout(() => {
-        navigate('/admin/dashboard');
-      }, 100);
-    } else {
-      toast.error('Invalid credentials');
+    // Validate input
+    try {
+      loginSchema.parse({ email, password });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+        return;
+      }
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const response = await apiClient.login(email, password);
+      
+      if (response.success && response.data?.user.role === 'admin') {
+        toast.success('Login successful!');
+        setTimeout(() => {
+          navigate('/admin/dashboard');
+        }, 100);
+      } else if (response.success && response.data?.user.role !== 'admin') {
+        toast.error('Access denied. Admin privileges required.');
+        apiClient.logout();
+      } else {
+        toast.error(response.message || 'Invalid credentials');
+      }
+    } catch (error) {
+      toast.error('An error occurred during login');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -37,14 +65,15 @@ const AdminLogin = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="email">Email Address</Label>
               <Input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter admin username"
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="admin@example.com"
                 required
+                disabled={isLoading}
                 className="mt-2"
               />
             </div>
@@ -56,34 +85,26 @@ const AdminLogin = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter admin password"
+                placeholder="Enter your password"
                 required
+                disabled={isLoading}
                 className="mt-2"
               />
             </div>
 
-            <Button type="submit" className="w-full">
-              Login
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? 'Logging in...' : 'Login'}
             </Button>
           </form>
 
           <div className="mt-8 p-4 bg-primary/10 border border-primary/50 rounded-lg">
             <p className="text-sm text-primary text-center font-semibold mb-3">
-              🎯 Demo Login Credentials
+              🔐 Secure Admin Access
             </p>
             <div className="space-y-2 text-xs text-foreground/80">
-              <p><strong>Username:</strong> admin1 | <strong>Password:</strong> admin123</p>
-              <p><strong>Username:</strong> admin2 | <strong>Password:</strong> admin123</p>
+              <p className="text-center">Connected to secure backend API</p>
+              <p className="text-center font-mono text-[10px]">Ensure backend is running on port 3001</p>
             </div>
-          </div>
-
-          <div className="mt-4 p-4 bg-destructive/10 border border-destructive/50 rounded-lg">
-            <p className="text-sm text-destructive text-center">
-              ⚠️ SECURITY WARNING
-            </p>
-            <p className="text-xs text-muted-foreground text-center mt-2">
-              Change default credentials immediately in Admin Settings
-            </p>
           </div>
 
           <Button
