@@ -154,7 +154,7 @@ const AdminSettingsManager = () => {
       <div className="bg-destructive/10 border border-destructive/50 rounded-lg p-6">
         <p className="text-sm text-destructive mb-2">⚠️ Security Notice:</p>
         <p className="text-xs text-muted-foreground">
-          This system uses localStorage which can be bypassed via browser DevTools. For production use, enable Lovable Cloud for proper server-side authentication.
+          This system uses localStorage which can be bypassed via browser DevTools. For production use, implement proper server-side authentication with the backend API.
         </p>
       </div>
     </div>
