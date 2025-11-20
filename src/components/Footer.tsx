@@ -1,8 +1,48 @@
+import { useState, useEffect } from 'react';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+
+interface SocialLink {
+  enabled: boolean;
+  url: string;
+}
+
+interface SocialLinks {
+  facebook: SocialLink;
+  twitter: SocialLink;
+  linkedin: SocialLink;
+  instagram: SocialLink;
+}
+
 const Footer = () => {
+  const [socialLinks, setSocialLinks] = useState<SocialLinks>({
+    facebook: { enabled: false, url: '' },
+    twitter: { enabled: false, url: '' },
+    linkedin: { enabled: false, url: '' },
+    instagram: { enabled: false, url: '' },
+  });
+
+  useEffect(() => {
+    const stored = localStorage.getItem('socialLinks');
+    if (stored) {
+      setSocialLinks(JSON.parse(stored));
+    }
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const socialIcons = [
+    { key: 'facebook' as const, icon: Facebook, label: 'Facebook' },
+    { key: 'twitter' as const, icon: Twitter, label: 'Twitter' },
+    { key: 'linkedin' as const, icon: Linkedin, label: 'LinkedIn' },
+    { key: 'instagram' as const, icon: Instagram, label: 'Instagram' },
+  ];
+
+  const enabledSocials = socialIcons.filter(
+    (social) => socialLinks[social.key].enabled && socialLinks[social.key].url
+  );
 
   return (
     <footer className="bg-background border-t border-white/5 py-16">
@@ -16,17 +56,25 @@ const Footer = () => {
             <p className="text-foreground/60 leading-relaxed mb-6">
               Advancing Skills, Building Futures. We empower students with corporate-style internships and hands-on skill development programs.
             </p>
-            <div className="flex gap-3">
-              {['f', 'tw', 'in', 'ig'].map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-primary hover:border-transparent hover:-translate-y-1"
-                >
-                  {icon}
-                </a>
-              ))}
-            </div>
+            {enabledSocials.length > 0 && (
+              <div>
+                <h4 className="text-primary text-sm font-semibold mb-3">Follow Us</h4>
+                <div className="flex gap-3">
+                  {enabledSocials.map(({ key, icon: Icon, label }) => (
+                    <a
+                      key={key}
+                      href={socialLinks[key].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-primary hover:border-transparent hover:-translate-y-1"
+                    >
+                      <Icon size={18} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Our Expertise */}
