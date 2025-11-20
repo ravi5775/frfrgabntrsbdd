@@ -97,16 +97,6 @@ const AdminLogin = () => {
             </Button>
           </form>
 
-          <div className="mt-8 p-4 bg-primary/10 border border-primary/50 rounded-lg">
-            <p className="text-sm text-primary text-center font-semibold mb-3">
-              🔐 Secure Admin Access
-            </p>
-            <div className="space-y-2 text-xs text-foreground/80">
-              <p className="text-center">Connected to secure backend API</p>
-              <p className="text-center font-mono text-[10px]">Ensure backend is running on port 3001</p>
-            </div>
-          </div>
-
           <Button
             variant="ghost"
             className="w-full mt-4"

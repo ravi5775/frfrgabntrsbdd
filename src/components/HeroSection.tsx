@@ -15,12 +15,12 @@ const HeroSection = () => {
         <p className="text-xl text-foreground/80 mb-10 max-w-3xl mx-auto leading-relaxed">
           We are a leading skill development and corporate training company empowering students and professionals with hands-on experience, real-world projects, and industry-ready expertise.
         </p>
-        <button
+        <div
           className="inline-block bg-gradient-primary text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-glow-hover relative overflow-hidden group"
         >
           <span className="relative z-10">Get Started Today</span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-        </button>
+        </div>
       </div>
     </section>
   );
