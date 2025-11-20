@@ -1,9 +1,4 @@
 const HeroSection = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle pt-20">
       {/* Animated background orbs */}
@@ -21,7 +16,6 @@ const HeroSection = () => {
           We are a leading skill development and corporate training company empowering students and professionals with hands-on experience, real-world projects, and industry-ready expertise.
         </p>
         <button
-          onClick={scrollToContact}
           className="inline-block bg-gradient-primary text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-glow-hover relative overflow-hidden group"
         >
           <span className="relative z-10">Get Started Today</span>
