@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import InternshipsManager from '@/components/admin/InternshipsManager';
@@ -8,34 +7,53 @@ import SocialLinksManager from '@/components/admin/SocialLinksManager';
 import CertificatesManager from '@/components/admin/CertificatesManager';
 import MessagesManager from '@/components/admin/MessagesManager';
 import AdminSettingsManager from '@/components/admin/AdminSettingsManager';
+import { apiClient } from '@/lib/api';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, currentAdmin, logout } = useAdminAuth();
   const [activeTab, setActiveTab] = useState('messages');
+  const [currentAdmin, setCurrentAdmin] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check localStorage directly to avoid race condition
-    const adminSession = localStorage.getItem('adminSession');
-    if (!adminSession) {
-      navigate('/admin');
-      return;
-    }
-    
-    const session = JSON.parse(adminSession);
-    if (session.expiresAt <= Date.now()) {
-      localStorage.removeItem('adminSession');
-      navigate('/admin');
-    }
+    const checkAuth = async () => {
+      if (!apiClient.isAuthenticated()) {
+        navigate('/admin');
+        return;
+      }
+
+      const isValid = await apiClient.verifyToken();
+      if (!isValid) {
+        apiClient.logout();
+        navigate('/admin');
+        return;
+      }
+
+      const user = apiClient.getCurrentUser();
+      if (user?.role !== 'admin') {
+        apiClient.logout();
+        navigate('/admin');
+        return;
+      }
+
+      setCurrentAdmin(user.email);
+      setIsLoading(false);
+    };
+
+    checkAuth();
   }, [navigate]);
 
   const handleLogout = () => {
-    logout();
+    apiClient.logout();
     navigate('/admin');
   };
 
-  if (!isAuthenticated) {
-    return null;
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
   }
 
   return (
