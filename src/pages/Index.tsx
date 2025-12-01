@@ -9,6 +9,7 @@ import VerifyCertificateSection from "@/components/VerifyCertificateSection";
 import FutureAimsSection from "@/components/FutureAimsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import PartnershipsSection from "@/components/PartnershipsSection";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <InternshipsSection />
       <StatsSection />
       <AboutSection />
+      <PartnershipsSection />
       <VisualizationSection />
       <FutureAimsSection />
       <VerifyCertificateSection />

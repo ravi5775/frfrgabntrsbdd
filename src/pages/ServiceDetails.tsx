@@ -126,10 +126,10 @@ const ServiceDetails = () => {
         </div>
       </section>
 
-      {/* Curriculum */}
+      {/* Learning Outcomes */}
       <section className="py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-background/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Course Curriculum</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8 text-center">Learning Outcomes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {service.curriculum.map((module, index) => (
               <div key={index} className="bg-card rounded-xl p-4 sm:p-6 border border-white/5 hover:border-primary/30 transition-all duration-300">
