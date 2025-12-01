@@ -86,10 +86,6 @@ const ServiceDetails = () => {
               <span>Duration: {service.duration}</span>
             </div>
             <div className="flex items-center gap-2 text-foreground/80">
-              <BookOpen className="h-5 w-5 text-primary" />
-              <span>{service.curriculum.length} Modules</span>
-            </div>
-            <div className="flex items-center gap-2 text-foreground/80">
               <Briefcase className="h-5 w-5 text-primary" />
               <span>{service.careerPaths.length} Career Paths</span>
             </div>
