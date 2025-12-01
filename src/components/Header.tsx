@@ -12,8 +12,8 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    // Map 'careers' to 'services' section (Career-Focused Training Programs)
-    const targetId = id === 'careers' ? 'services' : id;
+    // Map 'programs' to 'services' section (Career-Focused Training Programs)
+    const targetId = id === 'programs' ? 'services' : id;
     const element = document.getElementById(targetId);
     if (element) {
       const headerOffset = 80;
@@ -37,15 +37,14 @@ const Header = () => {
           SKILLVANCE TECHNOLOGIES
         </div>
         <ul className="hidden md:flex gap-10 list-none">
-          {["home", "careers", "internships", "verify", "contact"].map((item) => (
+          {["home", "programs", "verify", "contact"].map((item) => (
             <li key={item}>
               <button
                 onClick={() => scrollToSection(item)}
                 className="text-foreground/80 hover:text-primary font-medium text-[0.95rem] relative group transition-colors"
               >
                 {item === "home" ? "Home" : 
-                 item === "careers" ? "Careers" :
-                 item === "internships" ? "Internships" :
+                 item === "programs" ? "Programs" :
                  item === "verify" ? "Verify Certificate" :
                  "Contact Us"}
                 <span className="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-gradient-primary transition-all duration-300 group-hover:w-full" />
