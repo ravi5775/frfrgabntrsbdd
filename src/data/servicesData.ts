@@ -18,7 +18,7 @@ export const servicesData: Service[] = [
     title: "Machine Learning Engineer",
     description: "Master ML algorithms, model development, and deployment. Build intelligent systems using TensorFlow, PyTorch, and scikit-learn with real-world applications.",
     fullDescription: "Become a Machine Learning Engineer and master the art of building intelligent systems. This comprehensive program covers everything from fundamental ML algorithms to advanced deep learning techniques and production deployment strategies.",
-    duration: "6 months",
+    duration: "3 - 4 months",
     skills: [
       "Python Programming",
       "TensorFlow & PyTorch",
@@ -59,7 +59,7 @@ export const servicesData: Service[] = [
     title: "Data Scientist",
     description: "Learn statistical analysis, predictive modeling, and data visualization. Work with Python, R, and advanced analytics tools to extract insights from complex datasets.",
     fullDescription: "Become a Data Scientist and unlock the power of data-driven decision making. Learn to analyze complex datasets, build predictive models, and communicate insights effectively to stakeholders.",
-    duration: "5 months",
+    duration: "3 - 4 months",
     skills: [
       "Statistical Analysis",
       "Python & R Programming",
@@ -100,7 +100,7 @@ export const servicesData: Service[] = [
     title: "Data Analyst",
     description: "Master data cleaning, analysis, and reporting. Use SQL, Excel, Tableau, and Power BI to transform raw data into actionable business insights.",
     fullDescription: "Start your journey as a Data Analyst and learn to transform raw data into actionable insights. Master the tools and techniques used by top companies to drive data-informed decisions.",
-    duration: "4 months",
+    duration: "3 - 4 months",
     skills: [
       "SQL & Database Queries",
       "Excel & Advanced Formulas",
@@ -141,7 +141,7 @@ export const servicesData: Service[] = [
     title: "Web Developer",
     description: "Build modern, responsive web applications using HTML, CSS, JavaScript, React, Node.js, and MongoDB. Learn full-stack development from industry experts.",
     fullDescription: "Become a Full-Stack Web Developer and build modern, scalable web applications. Learn both frontend and backend technologies to create complete web solutions from scratch.",
-    duration: "6 months",
+    duration: "3 - 4 months",
     skills: [
       "HTML5 & CSS3",
       "JavaScript & ES6+",
@@ -183,7 +183,7 @@ export const servicesData: Service[] = [
     title: "Cybersecurity Engineer",
     description: "Protect digital infrastructure through ethical hacking, penetration testing, and security protocols. Master tools like Kali Linux, Metasploit, and Wireshark.",
     fullDescription: "Become a Cybersecurity Engineer and protect organizations from cyber threats. Learn ethical hacking, penetration testing, and security best practices to secure digital infrastructure.",
-    duration: "5 months",
+    duration: "3 - 4 months",
     skills: [
       "Network Security",
       "Ethical Hacking",
@@ -225,7 +225,7 @@ export const servicesData: Service[] = [
     title: "Blockchain Engineer",
     description: "Develop decentralized applications and smart contracts. Learn Ethereum, Solidity, Web3.js, and build secure blockchain solutions for the future.",
     fullDescription: "Become a Blockchain Engineer and build the decentralized future. Master smart contract development, DApp creation, and blockchain architecture to create secure and transparent solutions.",
-    duration: "5 months",
+    duration: "3 - 4 months",
     skills: [
       "Blockchain Fundamentals",
       "Solidity Programming",

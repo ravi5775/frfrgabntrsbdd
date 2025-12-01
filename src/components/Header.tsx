@@ -44,7 +44,7 @@ const Header = () => {
                 className="text-foreground/80 hover:text-primary font-medium text-[0.95rem] relative group transition-colors"
               >
                 {item === "home" ? "Home" : 
-                 item === "programs" ? "Programs" :
+                 item === "programs" ? "Careers & Internships" :
                  item === "verify" ? "Verify Certificate" :
                  "Contact Us"}
                 <span className="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-gradient-primary transition-all duration-300 group-hover:w-full" />
