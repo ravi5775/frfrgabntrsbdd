@@ -45,15 +45,15 @@ const Footer = () => {
   );
 
   return (
-    <footer className="bg-background border-t border-white/5 py-16">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-background border-t border-white/5 py-10 sm:py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
           {/* Brand Section */}
-          <div>
-            <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="text-xl sm:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3 sm:mb-4">
               SKILLVANCE TECHNOLOGIES
             </div>
-            <p className="text-foreground/60 leading-relaxed mb-6">
+            <p className="text-foreground/60 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
               Advancing Skills, Building Futures. We empower students with corporate-style internships and hands-on skill development programs.
             </p>
             {enabledSocials.length > 0 && (
@@ -67,9 +67,9 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-primary hover:border-transparent hover:-translate-y-1"
+                      className="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-primary hover:border-transparent hover:-translate-y-1"
                     >
-                      <Icon size={18} />
+                      <Icon size={16} className="sm:w-[18px] sm:h-[18px]" />
                     </a>
                   ))}
                 </div>
@@ -79,20 +79,20 @@ const Footer = () => {
 
           {/* Our Expertise */}
           <div>
-            <h3 className="text-primary text-xl mb-6 font-semibold">Our Expertise</h3>
-            <ul className="space-y-3">
+            <h3 className="text-primary text-lg sm:text-xl mb-4 sm:mb-6 font-semibold">Our Expertise</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 { label: 'Skill Development', id: 'services' },
                 { label: 'Corporate Training', id: 'services' },
                 { label: 'Internship Programs', id: 'internships' },
                 { label: 'Industry Mentorship', id: 'services' },
                 { label: 'Project-Based Learning', id: 'services' },
-                { label: 'Career Guidance', id: 'careers' },
+                { label: 'Career Guidance', id: 'services' },
               ].map((item) => (
                 <li key={item.label}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="text-foreground/60 hover:text-primary transition-colors"
+                    className="text-foreground/60 hover:text-primary transition-colors text-sm sm:text-base"
                   >
                     {item.label}
                   </button>
@@ -103,8 +103,8 @@ const Footer = () => {
 
           {/* Services Offered */}
           <div>
-            <h3 className="text-primary text-xl mb-6 font-semibold">Services Offered</h3>
-            <ul className="space-y-3">
+            <h3 className="text-primary text-lg sm:text-xl mb-4 sm:mb-6 font-semibold">Services Offered</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 'Machine Learning Engineer',
                 'Data Scientist',
@@ -116,7 +116,7 @@ const Footer = () => {
                 <li key={service}>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="text-foreground/60 hover:text-primary transition-colors"
+                    className="text-foreground/60 hover:text-primary transition-colors text-sm sm:text-base"
                   >
                     {service}
                   </button>
@@ -127,12 +127,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-primary text-xl mb-6 font-semibold">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-primary text-lg sm:text-xl mb-4 sm:mb-6 font-semibold">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {[
                 { label: 'Home', id: 'home' },
                 { label: 'About Us', id: 'about' },
-                { label: 'Careers', id: 'careers' },
+                { label: 'Careers', id: 'services' },
                 { label: 'Internships', id: 'internships' },
                 { label: 'Verify Certificate', id: 'verify' },
                 { label: 'Contact Us', id: 'contact' },
@@ -141,7 +141,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-foreground/60 hover:text-primary transition-colors"
+                    className="text-foreground/60 hover:text-primary transition-colors text-sm sm:text-base"
                   >
                     {link.label}
                   </button>
@@ -152,7 +152,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 border-t border-white/5 text-center text-foreground/50">
+        <div className="pt-6 sm:pt-8 border-t border-white/5 text-center text-foreground/50 text-xs sm:text-sm">
           <p>&copy; 2025 Skillvance Technologies. All Rights Reserved. | Designed with 💙 for Future Leaders</p>
         </div>
       </div>

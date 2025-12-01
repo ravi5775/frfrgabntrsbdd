@@ -52,14 +52,14 @@ const StatCard = ({ icon, target, label, suffix = "" }: StatCardProps) => {
   return (
     <div
       ref={ref}
-      className="relative bg-card p-12 rounded-2xl border border-white/5 text-center overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-glow group"
+      className="relative bg-card p-6 sm:p-8 lg:p-12 rounded-xl sm:rounded-2xl border border-white/5 text-center overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-glow group"
     >
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-primary" />
-      <div className="text-5xl mb-4">{icon}</div>
-      <div className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">{icon}</div>
+      <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
         {count}{suffix}
       </div>
-      <div className="text-lg text-muted-foreground uppercase tracking-wider font-medium">
+      <div className="text-sm sm:text-base lg:text-lg text-muted-foreground uppercase tracking-wider font-medium">
         {label}
       </div>
     </div>
@@ -68,8 +68,8 @@ const StatCard = ({ icon, target, label, suffix = "" }: StatCardProps) => {
 
 const StatsSection = () => {
   return (
-    <div className="bg-background py-20 border-t border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div className="bg-background py-12 sm:py-16 lg:py-20 border-t border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-12">
         <StatCard icon="📊" target={6} label="Domains Offered" />
         <StatCard icon="😊" target={100} label="% Client Satisfaction" suffix="%" />
         <StatCard icon="🏆" target={100} label="% Hands-On Training" suffix="%" />
