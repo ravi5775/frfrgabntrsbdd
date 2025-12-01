@@ -17,7 +17,7 @@ export const servicesData: Service[] = [
     icon: "🤖",
     title: "Machine Learning Engineer",
     description: "Master ML algorithms, model development, and deployment. Build intelligent systems using TensorFlow, PyTorch, and scikit-learn with real-world applications.",
-    fullDescription: "Become a Machine Learning Engineer and master the art of building intelligent systems. This comprehensive program covers everything from fundamental ML algorithms to advanced deep learning techniques and production deployment strategies.",
+    fullDescription: "Become a Machine Learning Engineer and master the art of building intelligent systems. This comprehensive program covers everything from fundamental ML algorithms to advanced deep learning techniques and production deployment strategies. You'll gain hands-on experience with industry-standard tools and frameworks, working on real-world projects that prepare you for immediate impact in tech companies. Our curriculum is designed by industry experts to bridge the gap between theoretical knowledge and practical implementation.",
     duration: "3 - 4 months",
     skills: [
       "Python Programming",
@@ -58,7 +58,7 @@ export const servicesData: Service[] = [
     icon: "📊",
     title: "Data Scientist",
     description: "Learn statistical analysis, predictive modeling, and data visualization. Work with Python, R, and advanced analytics tools to extract insights from complex datasets.",
-    fullDescription: "Become a Data Scientist and unlock the power of data-driven decision making. Learn to analyze complex datasets, build predictive models, and communicate insights effectively to stakeholders.",
+    fullDescription: "Become a Data Scientist and unlock the power of data-driven decision making. This program equips you with the skills to analyze complex datasets, build predictive models, and communicate insights effectively to stakeholders. You'll master statistical methods, machine learning techniques, and business intelligence tools used by Fortune 500 companies. Our project-based approach ensures you graduate with a portfolio that demonstrates your ability to solve real business problems.",
     duration: "3 - 4 months",
     skills: [
       "Statistical Analysis",
@@ -99,7 +99,7 @@ export const servicesData: Service[] = [
     icon: "📈",
     title: "Data Analyst",
     description: "Master data cleaning, analysis, and reporting. Use SQL, Excel, Tableau, and Power BI to transform raw data into actionable business insights.",
-    fullDescription: "Start your journey as a Data Analyst and learn to transform raw data into actionable insights. Master the tools and techniques used by top companies to drive data-informed decisions.",
+    fullDescription: "Start your journey as a Data Analyst and learn to transform raw data into actionable insights. This hands-on program teaches you the essential tools and techniques used by top companies to drive data-informed decisions. You'll become proficient in SQL, Excel, and visualization tools while developing strong analytical thinking and communication skills. Our industry-aligned curriculum prepares you for immediate employment in various sectors.",
     duration: "3 - 4 months",
     skills: [
       "SQL & Database Queries",
@@ -140,7 +140,7 @@ export const servicesData: Service[] = [
     icon: "💻",
     title: "Web Developer",
     description: "Build modern, responsive web applications using HTML, CSS, JavaScript, React, Node.js, and MongoDB. Learn full-stack development from industry experts.",
-    fullDescription: "Become a Full-Stack Web Developer and build modern, scalable web applications. Learn both frontend and backend technologies to create complete web solutions from scratch.",
+    fullDescription: "Become a Full-Stack Web Developer and build modern, scalable web applications from scratch. This comprehensive program covers both frontend and backend technologies, enabling you to create complete web solutions. You'll learn industry best practices, modern frameworks, and deployment strategies while building real projects that showcase your skills. Our mentorship-driven approach ensures you're job-ready upon completion.",
     duration: "3 - 4 months",
     skills: [
       "HTML5 & CSS3",
@@ -182,7 +182,7 @@ export const servicesData: Service[] = [
     icon: "🔒",
     title: "Cybersecurity Engineer",
     description: "Protect digital infrastructure through ethical hacking, penetration testing, and security protocols. Master tools like Kali Linux, Metasploit, and Wireshark.",
-    fullDescription: "Become a Cybersecurity Engineer and protect organizations from cyber threats. Learn ethical hacking, penetration testing, and security best practices to secure digital infrastructure.",
+    fullDescription: "Become a Cybersecurity Engineer and protect organizations from evolving cyber threats. This intensive program covers ethical hacking, penetration testing, and security best practices to secure digital infrastructure. You'll gain hands-on experience with industry-standard security tools and learn to think like an attacker to build stronger defenses. Our lab-based training ensures you're prepared for real-world security challenges.",
     duration: "3 - 4 months",
     skills: [
       "Network Security",
@@ -224,7 +224,7 @@ export const servicesData: Service[] = [
     icon: "⛓️",
     title: "Blockchain Engineer",
     description: "Develop decentralized applications and smart contracts. Learn Ethereum, Solidity, Web3.js, and build secure blockchain solutions for the future.",
-    fullDescription: "Become a Blockchain Engineer and build the decentralized future. Master smart contract development, DApp creation, and blockchain architecture to create secure and transparent solutions.",
+    fullDescription: "Become a Blockchain Engineer and build the decentralized future. This cutting-edge program covers smart contract development, DApp creation, and blockchain architecture to create secure and transparent solutions. You'll master Ethereum development, Solidity programming, and Web3 technologies while working on projects that showcase the transformative potential of blockchain. Our curriculum keeps pace with this rapidly evolving field.",
     duration: "3 - 4 months",
     skills: [
       "Blockchain Fundamentals",
